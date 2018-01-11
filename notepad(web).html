@@ -1,0 +1,56 @@
+<html>
+    <head>
+        
+        <script
+          src="http://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        
+        <script>
+            
+           $(function(){ //like main in c
+             var counter = 0;
+               var savedTitle = localStorage['title'];
+              var savedNote = localStorage['note'];
+               
+               
+               $('#title').val(savedTitle);
+               $('#note').val(savedNote);
+               
+              
+               
+               
+               setInterval(function(){ //loop
+                 
+                   //WHAT WE WANT TO DO
+                   var title = $('#title').val(); //על השדה הקטן
+                   var note = $('#note').val(); //על השדה הגדול
+                   
+                   
+                   localStorage['title'] = title; // [index] 
+                   localStorage['note'] = note;
+                   
+                   counter++;
+                   $('#counterElement').html(counter); //עידכון counterElement 
+                  // console.log(counter);
+                   
+/*                   console.log(title);*/
+               },1000);
+            
+               
+           });
+         
+        </script><!--/script-->
+
+    </head>
+    <body>
+        <form>
+            <input type="text" id="title" />
+            <br />
+            <textarea id="note" rows="10" cols="50"></textarea><!--/textarea-->
+            
+        </form><!--/form-->
+        <hr />
+        note saved <span id="counterElement">0</span> times
+    </body>
+</html>
